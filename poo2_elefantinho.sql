@@ -12,7 +12,7 @@ CREATE TABLE Pet (
     cor VARCHAR(50) NOT NULL,
     idpessoa INT NOT NULL,
     
-    FOREIGN KEY (idpessoa) REFERENCES Pessoa(idpessoa) ON UPDATE RESTRICT ON DELETE RESTRICT
+    CONSTRAINT fk_idpessoa FOREIGN KEY (idpessoa) REFERENCES Pessoa(idpessoa) ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
 CREATE INDEX idpessoa_idx ON Pessoa (idpessoa);
