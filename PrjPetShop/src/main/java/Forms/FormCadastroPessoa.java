@@ -2,8 +2,10 @@ package Forms;
 
 import BO.PessoaBO;
 import Objetos.Pessoa;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 
 /**
@@ -14,6 +16,7 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
     
     private MaskFormatter FormatoDataNasc;
     private List<Pessoa> lstPessoas;
+    PessoaBO pBO = new PessoaBO();
     
     private void preencherCombo() {
         Pessoa pessoaCons = new Pessoa();
@@ -379,11 +382,17 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        PessoaBO pBO = new PessoaBO();
         Pessoa pessoa = new Pessoa();
         pessoa.setNome(txtNome.getText());
         pessoa.setData(txtDataNasc.getText());
         pBO.salvar(pessoa);
+        int codigo = pessoa.getIdpessoa();
+        if(codigo != -1) {
+            txtCodigo.setText(String.valueOf(pessoa.getIdpessoa()));
+            JOptionPane.showMessageDialog(null, "Dados salvos com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao salvar os dados!");
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -402,6 +411,13 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
         Pessoa pessoa = new Pessoa();
         pessoa.setIdpessoa(Integer.parseInt(txtCodigo.getText()));
         pBO.excluir(pessoa);
+        int verif = 0;
+        verif = pessoa.getIdpessoa();
+        if(verif == 1) {
+            novo();
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao excluir os dados!");
+        }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed

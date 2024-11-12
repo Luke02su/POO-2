@@ -7,6 +7,7 @@ import java.sql.Connection; // Importa Connection para gerenciar a conexão com 
 import java.sql.PreparedStatement; // Importa PreparedStatement para preparar e executar instruções SQL.
 import java.sql.ResultSet; // Importa ResultSet para manipular o resultado de consultas SQL.
 import java.sql.SQLException; // Importa SQLException para tratar erros relacionados ao banco de dados.
+import java.sql.Statement;
 import java.util.ArrayList; // Importa ArrayList para criar listas.
 import java.util.List; // Importa List para definir o tipo da lista.
 
@@ -25,7 +26,8 @@ public class PessoaDAO { // Declara a classe PessoaDAO que é responsável pelas
         try {
             // Prepara o comando SQL para inserir uma nova pessoa na tabela.
             System.out.println(md.string2Date(p.getData())); // Converte e exibe a data no formato SQL.
-            PreparedStatement stmt = conn.prepareStatement("INSERT INTO pessoa (nome, data_nascimento) VALUES (?, ?)");
+            PreparedStatement stmt = conn.prepareStatement("INSERT INTO pessoa (nome, data_nascimento) VALUES (?, ?)", 
+                    Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, p.getNome()); // Atribui o valor do nome ao primeiro parâmetro.
             stmt.setDate(2, md.string2Date(p.getData())); // Converte e atribui a data de nascimento ao segundo parâmetro.
             stmt.execute(); // Executa o comando SQL.
@@ -61,7 +63,7 @@ public class PessoaDAO { // Declara a classe PessoaDAO que é responsável pelas
         int verif = 0; // Variável para verificar se a exclusão foi bem-sucedida.
         try {
             // Prepara o comando SQL para excluir uma pessoa específica.
-            PreparedStatement stmt = conn.prepareStatement("DELETE FROM pessoa WHERE idpessoa = ?");
+            PreparedStatement stmt = conn.prepareStatement("DELETE FROM pessoa");
             stmt.setInt(1, p.getIdpessoa()); // Define o ID da pessoa a ser excluída.
             verif = stmt.executeUpdate(); // Executa o comando de exclusão e retorna o número de linhas afetadas.
         } catch (SQLException ex) {
