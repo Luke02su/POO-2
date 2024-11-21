@@ -1,47 +1,6 @@
-Luke02su
-/
-POO-2
-
-Type / to search
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Commit fbeb7cc
-Preview
-Give feedback
-Luke02su
-Luke02su
-authored
-8 minutes ago
-Verified
-Update poo2_golfinho.sql
-main
-1 parent 
-9169601
- commit 
-fbeb7cc
-File tree
-Filter files…
-poo2_golfinho.sql
-1 file changed
-+10
--12
-lines changed
-Search within code
- 
-‎poo2_golfinho.sql
-+10
--12
-Original file line number	Original file line	Diff line number	Diff line change
-@@ -1,32 +1,30 @@
 CREATE SCHEMA bd_petshop;
 USE bd_petshop;
+
 CREATE TABLE Pessoa (
 	idpessoa INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(35) NOT NULL,
