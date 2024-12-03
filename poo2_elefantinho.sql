@@ -16,7 +16,7 @@ CREATE TABLE Pet (
     CONSTRAINT fk_idpessoa FOREIGN KEY (idpessoa) REFERENCES Pessoa(idpessoa) ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
-CREATE INDEX idpessoa_idx ON Pessoa (idpessoa);
+CREATE INDEX fk_idpessoa_idx ON Pet (idpessoa);
 
 INSERT INTO pessoa VALUES (default, 'Lucas', '2004-08-16');
 INSERT INTO pet VALUES (default, 'Toto', 'Shitzu', '2020-09-18', 'Branco com preto', 'Pequeno', 1);
