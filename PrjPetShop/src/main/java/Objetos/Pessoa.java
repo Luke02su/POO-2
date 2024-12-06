@@ -4,6 +4,15 @@ public class Pessoa {
     private int idpessoa;
     private String nome;
     private String data;
+    
+    
+    // Construtor vazio
+    public Pessoa() {}
+
+    // Construtor com ID (caso necessário para associações rápidas)
+    public Pessoa(int idPessoa) {
+        this.idpessoa = idPessoa;
+    }
 
     public int getIdpessoa() {
         return idpessoa;

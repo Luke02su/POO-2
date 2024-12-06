@@ -82,7 +82,7 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         cmbPessoas = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        btnConsultar = new javax.swing.JButton();
+        lsd_btnConsultar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
@@ -141,7 +141,12 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
 
         jLabel4.setText("Dados para consulta:");
 
-        btnConsultar.setText("Consultar");
+        lsd_btnConsultar.setText("Consultar");
+        lsd_btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lsd_btnConsultarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,7 +166,7 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnConsultar)
+                .addComponent(lsd_btnConsultar)
                 .addGap(210, 210, 210))
         );
         jPanel1Layout.setVerticalGroup(
@@ -178,7 +183,7 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(cmbPessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(btnConsultar)
+                .addComponent(lsd_btnConsultar)
                 .addGap(18, 18, 18))
         );
 
@@ -430,6 +435,11 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
         preencherCombo();
     }//GEN-LAST:event_txtConsNomeCaretUpdate
 
+    private void lsd_btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lsd_btnConsultarActionPerformed
+        // TODO add your handling code here:
+        preencherCampos();
+    }//GEN-LAST:event_lsd_btnConsultarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -466,7 +476,6 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
@@ -488,6 +497,7 @@ public class FormCadastroPessoa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton lsd_btnConsultar;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtConsNome;
     private javax.swing.JTextField txtDataNasc;
